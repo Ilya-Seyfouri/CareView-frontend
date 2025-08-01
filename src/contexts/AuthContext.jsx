@@ -1,8 +1,9 @@
 import { createContext, useContext, useState, useEffect } from 'react'
-import { apiPost, apiGet } from './api'
+import { apiPost, apiGet } from './utils/api'
 
 const AuthContext = createContext()
 
+// Custom hook to easily access auth data in any component
 export const useAuth = () => {
   const context = useContext(AuthContext)
   if (!context) {
@@ -19,6 +20,7 @@ export const AuthProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false)
   const [isAuthenticated, setIsAuthenticated] = useState(false)
 
+  // Login function - uses your existing API utility
   const login = async (email, password) => {
     setIsLoading(true)
     
@@ -46,6 +48,7 @@ export const AuthProvider = ({ children }) => {
     if (!authToken) return
 
     try {
+      // apiGet expects just the endpoint, not /api/me
       const data = await apiGet('me')
       
       setUser(data.user)
