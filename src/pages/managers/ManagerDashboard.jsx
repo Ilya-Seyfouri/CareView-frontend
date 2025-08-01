@@ -16,7 +16,7 @@ export default function ManagerDashboard() {
     const fetchDashboardData = async () => {
       try {
         setIsLoading(true)
-        const data = await apiGet('/manager/dashboard')
+        const data = await apiGet('manager/dashboard')
         setDashboardData(data)
         setError(null)
       } catch (err) {
