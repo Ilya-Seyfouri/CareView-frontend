@@ -18,7 +18,7 @@ export const apiCall = async (url, options = {}) => {
     }
 
     try {
-        const response = await fetch(`${baseURL}${url}`, config)
+        const response = await fetch(`${baseURL}/${url}`, config)
 
         // Handle authentication errors
         if (response.status === 401) {
