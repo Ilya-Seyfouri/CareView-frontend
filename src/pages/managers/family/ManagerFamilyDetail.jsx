@@ -22,7 +22,7 @@ export default function ManagerFamilyDetail() {
     const fetchFamily = async () => {
       try {
         setIsLoading(true)
-        const data = await apiGet(`/manager/family/${email}`)
+        const data = await apiGet(`manager/family/${email}`)
         setFamily(data)
         setEditData({
           id: data.id || '',
@@ -50,7 +50,7 @@ export default function ManagerFamilyDetail() {
 
     try {
       setIsDeleting(true)
-      await apiDelete(`/manager/family/${email}`)
+      await apiDelete(`manager/family/${email}`)
       toast.success('Family member deleted successfully')
       navigate('/manager/families')
     } catch (err) {
@@ -69,7 +69,7 @@ export default function ManagerFamilyDetail() {
   const handleSave = async () => {
     try {
       setIsSubmitting(true)
-      await apiPut(`/manager/family/${email}`, editData)
+      await apiPut(`manager/family/${email}`, editData)
       
       setFamily({ ...family, ...editData })
       setIsEditing(false)

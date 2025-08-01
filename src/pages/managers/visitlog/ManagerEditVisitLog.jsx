@@ -30,7 +30,7 @@ export default function ManagerEditVisitLog() {
     const fetchVisitLog = async () => {
       try {
         setIsLoading(true)
-        const data = await apiGet(`/manager/client/${client_id}/visit-logs/${visit_log_id}`)
+        const data = await apiGet(`manager/client/${client_id}/visit-logs/${visit_log_id}`)
         
         const dateForInput = new Date(data.date).toISOString().slice(0, 16)
         
@@ -86,7 +86,7 @@ export default function ManagerEditVisitLog() {
         date: new Date(formData.date)
       }
       
-      await apiPut(`/manager/client/${client_id}/visit-log/${visit_log_id}`, visitLogData)
+      await apiPut(`manager/client/${client_id}/visit-log/${visit_log_id}`, visitLogData)
       
       toast.success('Visit log updated successfully!')
       navigate(`/manager/client/${client_id}/visit-logs/${visit_log_id}`)

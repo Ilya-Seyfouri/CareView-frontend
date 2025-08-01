@@ -16,7 +16,7 @@ export default function FamilySchedules() {
     const fetchSchedules = async () => {
       try {
         setIsLoading(true)
-        const data = await apiGet('/family/me/schedules')
+        const data = await apiGet('family/me/schedules')
         setSchedules(data.schedules)
         setError(null)
       } catch (err) {

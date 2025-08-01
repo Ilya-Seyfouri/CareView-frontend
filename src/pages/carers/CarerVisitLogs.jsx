@@ -17,7 +17,7 @@ export default function CarerVisitLogs() {
     const fetchVisitLogs = async () => {
       try {
         setIsLoading(true)
-        const data = await apiGet(`/carer/me/clients/${client_id}/visit-logs`)
+        const data = await apiGet(`carer/me/clients/${client_id}/visit-logs`)
         setVisitLogs(data.visit_logs)
         setError(null)
       } catch (err) {

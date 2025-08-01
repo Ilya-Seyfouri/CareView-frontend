@@ -24,7 +24,7 @@ export default function ManagerClientDetail() {
     const fetchClient = async () => {
       try {
         setIsLoading(true)
-        const data = await apiGet(`/manager/client/${client_id}`)
+        const data = await apiGet(`manager/client/${client_id}`)
         setClient(data)
         setEditData({
           name: data.name || '',
@@ -63,7 +63,7 @@ export default function ManagerClientDetail() {
         ...editData,
         age: parseInt(editData.age)
       }
-      await apiPut(`/manager/client/${client_id}`, updatePayload)
+      await apiPut(`manager/client/${client_id}`, updatePayload)
       
       setClient({ ...client, ...updatePayload })
       setIsEditing(false)
@@ -95,7 +95,7 @@ export default function ManagerClientDetail() {
 
     try {
       setIsDeleting(true)
-      await apiDelete(`/manager/client/${client_id}`)
+      await apiDelete(`manager/client/${client_id}`)
       toast.success('Client deleted successfully')
       navigate('/manager/clients')
     } catch (err) {

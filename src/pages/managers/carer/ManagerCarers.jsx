@@ -18,7 +18,7 @@ export default function ManagerCarers() {
     const fetchCarers = async () => {
       try {
         setIsLoading(true)
-        const data = await apiGet('/manager/carers')
+        const data = await apiGet('manager/carers')
         setCarers(data.carers)
         setError(null)
       } catch (err) {

@@ -20,11 +20,11 @@ export default function ManagerCarerSchedules() {
         setIsLoading(true)
         
         // Get carer info first
-        const carerData = await apiGet(`/manager/carer/${email}`)
+        const carerData = await apiGet(`manager/carer/${email}`)
         setCarer(carerData)
         
         // Get all schedules and filter for this carer
-        const schedulesData = await apiGet('/manager/schedules')
+        const schedulesData = await apiGet('manager/schedules')
         const carerSchedules = schedulesData.schedules.filter(schedule => schedule.carer_email === email)
         setSchedules(carerSchedules)
         setError(null)

@@ -20,7 +20,7 @@ export default function ManagerClientVisitLogs() {
     const fetchVisitLogs = async () => {
       try {
         setIsLoading(true)
-        const data = await apiGet(`/manager/client/${client_id}/visit-logs`)
+        const data = await apiGet(`manager/client/${client_id}/visit-logs`)
         setVisitLogs(data.visit_logs)
         setError(null)
       } catch (err) {

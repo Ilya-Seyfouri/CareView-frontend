@@ -19,7 +19,7 @@ export default function AdminManagers() {
     const fetchManagers = async () => {
       try {
         setIsLoading(true)
-        const data = await apiGet('/admin/managers')
+        const data = await apiGet('admin/managers')
         setManagers(data.managers)
         setError(null)
       } catch (err) {

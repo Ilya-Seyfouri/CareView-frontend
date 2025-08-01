@@ -19,7 +19,7 @@ export default function CarerScheduleDetail() {
     const fetchSchedule = async () => {
       try {
         setIsLoading(true)
-        const data = await apiGet(`/carer/me/schedules/${schedule_id}`)
+        const data = await apiGet(`carer/me/schedules/${schedule_id}`)
         setSchedule(data)
         setError(null)
       } catch (err) {
@@ -37,7 +37,7 @@ export default function CarerScheduleDetail() {
     try {
       setUpdatingStatus(true)
       
-      await apiPut(`/carer/me/schedules/${schedule_id}/status?new_status=${newStatus}`)
+      await apiPut(`carer/me/schedules/${schedule_id}/status?new_status=${newStatus}`)
       
       // Update local state
       setSchedule(prev => ({ ...prev, status: newStatus }))

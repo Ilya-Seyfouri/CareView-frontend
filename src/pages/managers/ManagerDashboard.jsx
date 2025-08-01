@@ -156,7 +156,7 @@ export default function ManagerDashboard() {
             <h3 className="section-title">Quick Actions</h3>
             <div className="quick-actions-grid">
               <button 
-                onClick={() => navigate('/manager/clients')}
+                onClick={() => navigate('manager/clients')}
                 className="quick-action-card"
               >
                 <div className="quick-action-icon icon-primary">👥</div>
@@ -165,7 +165,7 @@ export default function ManagerDashboard() {
               </button>
               
               <button 
-                onClick={() => navigate('/manager/carers')}
+                onClick={() => navigate('manager/carers')}
                 className="quick-action-card"
               >
                 <div className="quick-action-icon icon-success">👨‍⚕️</div>
@@ -174,7 +174,7 @@ export default function ManagerDashboard() {
               </button>
               
               <button 
-                onClick={() => navigate('/manager/families')}
+                onClick={() => navigate('manager/families')}
                 className="quick-action-card"
               >
                 <div className="quick-action-icon icon-warning">👨‍👩‍👧‍👦</div>
@@ -183,7 +183,7 @@ export default function ManagerDashboard() {
               </button>
               
               <button 
-                onClick={() => navigate('/manager/schedules')}
+                onClick={() => navigate('manager/schedules')}
                 className="quick-action-card"
               >
                 <div className="quick-action-icon icon-accent">📅</div>

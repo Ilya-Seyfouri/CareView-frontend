@@ -24,7 +24,7 @@ export default function ManagerCarerDetail() {
     const fetchCarer = async () => {
       try {
         setIsLoading(true)
-        const data = await apiGet(`/manager/carer/${email}`)
+        const data = await apiGet(`manager/carer/${email}`)
         setCarer(data)
         setEditData({
           name: data.name || '',
@@ -56,7 +56,7 @@ export default function ManagerCarerDetail() {
 
     try {
       setIsDeleting(true)
-      await apiDelete(`/manager/carer/${email}`)
+      await apiDelete(`manager/carer/${email}`)
       toast.success('Carer deleted successfully')
       navigate('/manager/carers')
     } catch (err) {
@@ -76,7 +76,7 @@ export default function ManagerCarerDetail() {
   const handleSave = async () => {
     try {
       setIsSubmitting(true)
-      await apiPut(`/manager/carer/${email}`, editData)
+      await apiPut(`manager/carer/${email}`, editData)
       
       setCarer({ ...carer, ...editData })
       setIsEditing(false)

@@ -38,7 +38,7 @@ export default function ManagerCreateClient() {
         age: parseInt(formData.age)
       }
       
-      const response = await apiPost('/manager/create/client', clientData)
+      const response = await apiPost('manager/create/client', clientData)
       
       toast.success('Client created successfully!')
       

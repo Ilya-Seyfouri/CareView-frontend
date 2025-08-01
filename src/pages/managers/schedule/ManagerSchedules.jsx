@@ -16,7 +16,7 @@ export default function ManagerSchedules() {
     const fetchSchedules = async () => {
       try {
         setIsLoading(true)
-        const data = await apiGet('/manager/schedules')
+        const data = await apiGet('manager/schedules')
         console.log('Schedules data:', data)
         
         setSchedules(data.schedules)

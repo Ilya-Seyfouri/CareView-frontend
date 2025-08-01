@@ -18,7 +18,7 @@ export default function CarerClientDetail() {
     const fetchClient = async () => {
       try {
         setIsLoading(true)
-        const data = await apiGet(`/carer/me/clients/${client_id}`)
+        const data = await apiGet(`carer/me/clients/${client_id}`)
         setClient(data)
         setError(null)
       } catch (err) {

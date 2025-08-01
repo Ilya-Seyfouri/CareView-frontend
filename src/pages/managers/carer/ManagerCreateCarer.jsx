@@ -34,7 +34,7 @@ export default function ManagerCreateCarer() {
     try {
       setIsSubmitting(true)
       
-      const response = await apiPost('/manager/create/carer', formData)
+      const response = await apiPost('manager/create/carer', formData)
       
       toast.success('Carer created successfully!')
       

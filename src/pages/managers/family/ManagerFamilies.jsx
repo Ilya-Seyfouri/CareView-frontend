@@ -16,7 +16,7 @@ export default function ManagerFamilies() {
     const fetchFamilies = async () => {
       try {
         setIsLoading(true)
-        const data = await apiGet('/manager/families')
+        const data = await apiGet('manager/families')
         setFamilies(data.families)
         setError(null)
       } catch (err) {

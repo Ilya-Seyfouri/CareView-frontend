@@ -62,7 +62,7 @@ export default function ManagerCreateVisitLog() {
       
       console.log('Sending visit log data:', visitLogData)
       
-      await apiPost(`/manager/client/${client_id}/visit-log`, visitLogData)
+      await apiPost(`manager/client/${client_id}/visit-log`, visitLogData)
       
       toast.success('Visit log created successfully!')
       navigate(`/manager/client/${client_id}`)

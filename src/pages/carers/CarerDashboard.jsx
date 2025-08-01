@@ -16,7 +16,7 @@ export default function CarerDashboard() {
     const fetchDashboardData = async () => {
       try {
         setIsLoading(true)
-        const data = await apiGet('/carer/dashboard')
+        const data = await apiGet('carer/dashboard')
         setDashboardData(data)
         setError(null)
       } catch (err) {

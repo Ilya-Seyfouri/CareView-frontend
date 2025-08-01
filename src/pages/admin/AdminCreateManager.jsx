@@ -35,7 +35,7 @@ export default function AdminCreateManager() {
     try {
       setIsSubmitting(true)
       
-      const response = await apiPost('/admin/create/manager', formData)
+      const response = await apiPost('admin/create/manager', formData)
       
       toast.success('Manager created successfully!')
       

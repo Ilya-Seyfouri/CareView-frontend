@@ -17,7 +17,7 @@ export default function AdminDashboard() {
     const fetchDashboardData = async () => {
       try {
         setIsLoading(true)
-        const data = await apiGet('/admin/dashboard')
+        const data = await apiGet('admin/dashboard')
         setDashboardData(data)
         setError(null)
       } catch (err) {

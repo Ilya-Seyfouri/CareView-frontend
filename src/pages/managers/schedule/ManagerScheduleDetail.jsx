@@ -24,7 +24,7 @@ export default function ManagerScheduleDetail() {
     const fetchSchedule = async () => {
       try {
         setIsLoading(true)
-        const data = await apiGet(`/manager/schedules/${schedule_id}`)
+        const data = await apiGet(`manager/schedules/${schedule_id}`)
         setSchedule(data)
         setEditData({
           carer_email: data.carer_email || '',
@@ -59,7 +59,7 @@ export default function ManagerScheduleDetail() {
       
       console.log('Updating schedule with data:', editData)
       
-      await apiPut(`/manager/schedules/${schedule_id}`, editData)
+      await apiPut(`manager/schedules/${schedule_id}`, editData)
       
       setSchedule({ ...schedule, ...editData })
       setIsEditing(false)
@@ -93,7 +93,7 @@ export default function ManagerScheduleDetail() {
 
     try {
       setIsDeleting(true)
-      await apiDelete(`/manager/schedules/${schedule_id}`)
+      await apiDelete(`manager/schedules/${schedule_id}`)
       toast.success('Schedule deleted successfully')
       
       goBack()

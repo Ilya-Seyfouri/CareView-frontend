@@ -22,7 +22,7 @@ export default function CarerProfile() {
     const fetchProfile = async () => {
       try {
         setIsLoading(true)
-        const data = await apiGet('/carer/me')
+        const data = await apiGet('carer/me')
         setCarer(data)
         setEditData({
           name: data.name || '',
@@ -52,7 +52,7 @@ export default function CarerProfile() {
       
       console.log('Updating profile with data:', editData)
       
-      await apiPut('/carer/me', editData)
+      await apiPut('carer/me', editData)
       
       // Update local state
       setCarer({ ...carer, ...editData })

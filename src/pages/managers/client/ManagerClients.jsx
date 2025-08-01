@@ -18,7 +18,7 @@ export default function ManagerClients() {
     const fetchClients = async () => {
       try {
         setIsLoading(true)
-        const data = await apiGet('/manager/clients')
+        const data = await apiGet('manager/clients')
         setClients(data.clients)
         setError(null)
       } catch (err) {

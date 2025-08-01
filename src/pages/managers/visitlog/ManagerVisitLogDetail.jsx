@@ -19,7 +19,7 @@ export default function ManagerVisitLogDetail() {
     const fetchVisitLog = async () => {
       try {
         setIsLoading(true)
-        const data = await apiGet(`/manager/client/${client_id}/visit-logs/${visit_log_id}`)
+        const data = await apiGet(`manager/client/${client_id}/visit-logs/${visit_log_id}`)
         setVisitLog(data)
         setError(null)
       } catch (err) {
@@ -40,7 +40,7 @@ export default function ManagerVisitLogDetail() {
 
     try {
       setIsDeleting(true)
-      await apiDelete(`/manager/client/${client_id}/visit-log/${visit_log_id}`)
+      await apiDelete(`manager/client/${client_id}/visit-log/${visit_log_id}`)
       toast.success('Visit log deleted successfully')
       navigate(`/manager/client/${client_id}/visit-logs`)
     } catch (err) {

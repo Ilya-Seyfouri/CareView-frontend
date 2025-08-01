@@ -24,9 +24,9 @@ export default function ManagerClientTeam() {
       try {
         setIsLoading(true)
         const [teamResponse, carersResponse, familiesResponse] = await Promise.all([
-          apiGet(`/manager/client/${client_id}/team`),
-          apiGet('/manager/carers'),
-          apiGet('/manager/families')
+          apiGet(`manager/client/${client_id}/team`),
+          apiGet('manager/carers'),
+          apiGet('manager/families')
         ])
         
         setTeamData(teamResponse)
@@ -47,11 +47,11 @@ export default function ManagerClientTeam() {
   // Assignment handlers
   const assignCarer = async (carerEmail) => {
     try {
-      await apiPost(`/manager/client/${client_id}/assign-carer/${carerEmail}`)
+      await apiPost(`manager/client/${client_id}/assign-carer/${carerEmail}`)
       toast.success('Carer assigned successfully')
       
       // Refresh team data after assignment
-      const updatedTeam = await apiGet(`/manager/client/${client_id}/team`)
+      const updatedTeam = await apiGet(`manager/client/${client_id}/team`)
       setTeamData(updatedTeam)
     } catch (err) {
       toast.error('Failed to assign carer')
@@ -61,11 +61,11 @@ export default function ManagerClientTeam() {
 
   const unassignCarer = async (carerEmail) => {
     try {
-      await apiDelete(`/manager/client/${client_id}/unassign-carer/${carerEmail}`)
+      await apiDelete(`manager/client/${client_id}/unassign-carer/${carerEmail}`)
       toast.success('Carer unassigned successfully')
       
       // Refresh team data
-      const updatedTeam = await apiGet(`/manager/client/${client_id}/team`)
+      const updatedTeam = await apiGet(`manager/client/${client_id}/team`)
       setTeamData(updatedTeam)
     } catch (err) {
       toast.error('Failed to unassign carer')
@@ -75,10 +75,10 @@ export default function ManagerClientTeam() {
 
   const assignFamily = async (familyEmail) => {
     try {
-      await apiPost(`/manager/client/${client_id}/assign-family/${familyEmail}`)
+      await apiPost(`manager/client/${client_id}/assign-family/${familyEmail}`)
       toast.success('Family member assigned successfully')
       
-      const updatedTeam = await apiGet(`/manager/client/${client_id}/team`)
+      const updatedTeam = await apiGet(`manager/client/${client_id}/team`)
       setTeamData(updatedTeam)
     } catch (err) {
       toast.error('Failed to assign family member')
@@ -88,10 +88,10 @@ export default function ManagerClientTeam() {
 
   const unassignFamily = async (familyEmail) => {
     try {
-      await apiDelete(`/manager/client/${client_id}/unassign-family/${familyEmail}`)
+      await apiDelete(`manager/client/${client_id}/unassign-family/${familyEmail}`)
       toast.success('Family member unassigned successfully')
       
-      const updatedTeam = await apiGet(`/manager/client/${client_id}/team`)
+      const updatedTeam = await apiGet(`manager/client/${client_id}/team`)
       setTeamData(updatedTeam)
     } catch (err) {
       toast.error('Failed to unassign family member')

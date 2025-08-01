@@ -32,7 +32,7 @@ export default function ManagerCreateFamily() {
     try {
       setIsSubmitting(true)
       
-      const response = await apiPost('/manager/create/family-member', formData)
+      const response = await apiPost('manager/create/family-member', formData)
       
       toast.success('Family member created successfully!')
       navigate('/manager/families')

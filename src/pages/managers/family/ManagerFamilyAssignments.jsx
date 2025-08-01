@@ -23,8 +23,8 @@ export default function ManagerFamilyAssignments() {
       try {
         setIsLoading(true)
         const [familyResponse, clientsResponse] = await Promise.all([
-          apiGet(`/manager/family/${email}`),
-          apiGet('/manager/clients')
+          apiGet(`manager/family/${email}`),
+          apiGet('manager/clients')
         ])
         
         setFamily(familyResponse)
@@ -45,10 +45,10 @@ export default function ManagerFamilyAssignments() {
   const assignClient = async (clientId) => {
     try {
       setIsUpdating(true)
-      await apiPost(`/manager/client/${clientId}/assign-family/${email}`)
+      await apiPost(`manager/client/${clientId}/assign-family/${email}`)
       toast.success('Client assigned successfully')
       
-      const updatedFamily = await apiGet(`/manager/family/${email}`)
+      const updatedFamily = await apiGet(`manager/family/${email}`)
       setFamily(updatedFamily)
     } catch (err) {
       toast.error('Failed to assign client')
@@ -61,10 +61,10 @@ export default function ManagerFamilyAssignments() {
   const unassignClient = async (clientId) => {
     try {
       setIsUpdating(true)
-      await apiDelete(`/manager/client/${clientId}/unassign-family/${email}`)
+      await apiDelete(`manager/client/${clientId}/unassign-family/${email}`)
       toast.success('Client unassigned successfully')
       
-      const updatedFamily = await apiGet(`/manager/family/${email}`)
+      const updatedFamily = await apiGet(`manager/family/${email}`)
       setFamily(updatedFamily)
     } catch (err) {
       toast.error('Failed to unassign client')

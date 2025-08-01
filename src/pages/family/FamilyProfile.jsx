@@ -21,7 +21,7 @@ export default function FamilyProfile() {
     const fetchProfile = async () => {
       try {
         setIsLoading(true)
-        const data = await apiGet('/family/me')
+        const data = await apiGet('family/me')
         setFamily(data)
         setEditData({
           id: data.id || '',
@@ -52,7 +52,7 @@ export default function FamilyProfile() {
       
       console.log('Updating profile with data:', editData)
       
-      await apiPut('/family/me', editData)
+      await apiPut('family/me', editData)
       
       // Update local state
       setFamily({ ...family, ...editData })

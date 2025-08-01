@@ -17,7 +17,7 @@ export default function FamilyClientDetail() {
     const fetchClient = async () => {
       try {
         setIsLoading(true)
-        const data = await apiGet(`/family/me/clients/${client_id}`)
+        const data = await apiGet(`family/me/clients/${client_id}`)
         setClient(data)
         setError(null)
       } catch (err) {

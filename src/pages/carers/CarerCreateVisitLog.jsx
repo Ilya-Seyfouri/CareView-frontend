@@ -51,7 +51,7 @@ export default function CarerCreateVisitLog() {
       
       console.log('Creating visit log with data:', formData)
       
-      await apiPost(`/carer/me/clients/${client_id}/visit-log`, formData)
+      await apiPost(`carer/me/clients/${client_id}/visit-log`, formData)
       
       toast.success('Visit log created successfully!')
       navigate(`/carer/me/clients/${client_id}`)

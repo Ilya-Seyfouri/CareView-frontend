@@ -18,7 +18,7 @@ export default function ManagerClientSchedules() {
       try {
         setIsLoading(true)
         // Get all schedules and filter for this client
-        const data = await apiGet('/manager/schedules')
+        const data = await apiGet('manager/schedules')
         const clientSchedules = data.schedules.filter(schedule => schedule.client_id === client_id)
         setSchedules(clientSchedules)
         setError(null)

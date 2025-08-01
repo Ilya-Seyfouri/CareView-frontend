@@ -19,7 +19,7 @@ export default function FamilyVisitLogDetail() {
       try {
         setIsLoading(true)
         //GET family visit logs
-        const data = await apiGet(`/family/me/visit-logs/${visit_log_id}`)
+        const data = await apiGet(`family/me/visit-logs/${visit_log_id}`)
         setVisitLog(data)
         setError(null)
       } catch (err) {

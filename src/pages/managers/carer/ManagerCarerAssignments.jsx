@@ -23,8 +23,8 @@ export default function ManagerCarerAssignments() {
       try {
         setIsLoading(true)
         const [carerResponse, clientsResponse] = await Promise.all([
-          apiGet(`/manager/carer/${email}`),
-          apiGet('/manager/clients')
+          apiGet(`manager/carer/${email}`),
+          apiGet('manager/clients')
         ])
         
         setCarer(carerResponse)
@@ -45,10 +45,10 @@ export default function ManagerCarerAssignments() {
   const assignClient = async (clientId) => {
     try {
       setIsUpdating(true)
-      await apiPost(`/manager/client/${clientId}/assign-carer/${email}`)
+      await apiPost(`manager/client/${clientId}/assign-carer/${email}`)
       toast.success('Client assigned successfully')
       
-      const updatedCarer = await apiGet(`/manager/carer/${email}`)
+      const updatedCarer = await apiGet(`manager/carer/${email}`)
       setCarer(updatedCarer)
     } catch (err) {
       toast.error('Failed to assign client')
@@ -61,10 +61,10 @@ export default function ManagerCarerAssignments() {
   const unassignClient = async (clientId) => {
     try {
       setIsUpdating(true)
-      await apiDelete(`/manager/client/${clientId}/unassign-carer/${email}`)
+      await apiDelete(`manager/client/${clientId}/unassign-carer/${email}`)
       toast.success('Client unassigned successfully')
       
-      const updatedCarer = await apiGet(`/manager/carer/${email}`)
+      const updatedCarer = await apiGet(`manager/carer/${email}`)
       setCarer(updatedCarer)
     } catch (err) {
       toast.error('Failed to unassign client')

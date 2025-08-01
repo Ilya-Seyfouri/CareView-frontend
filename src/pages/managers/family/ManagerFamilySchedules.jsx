@@ -19,10 +19,10 @@ export default function ManagerFamilySchedules() {
       try {
         setIsLoading(true)
         
-        const familyData = await apiGet(`/manager/family/${email}`)
+        const familyData = await apiGet(`manager/family/${email}`)
         setFamily(familyData)
         
-        const schedulesData = await apiGet('/manager/schedules')
+        const schedulesData = await apiGet('manager/schedules')
         const familySchedules = schedulesData.schedules.filter(schedule => 
           familyData.assigned_clients.includes(schedule.client_id)
         )

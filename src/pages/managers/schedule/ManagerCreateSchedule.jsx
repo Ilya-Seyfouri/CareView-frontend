@@ -29,8 +29,8 @@ export default function ManagerCreateSchedule() {
     const fetchData = async () => {
       try {
         const [carersResponse, clientsResponse] = await Promise.all([
-          apiGet('/manager/carers'),
-          apiGet('/manager/clients')
+          apiGet('manager/carers'),
+          apiGet('manager/clients')
         ])
         setCarers(carersResponse.carers)
         setClients(clientsResponse.clients)
@@ -65,7 +65,7 @@ export default function ManagerCreateSchedule() {
       
       console.log('Creating schedule with data:', formData)
       
-      const response = await apiPost('/manager/schedules', formData)
+      const response = await apiPost('manager/schedules', formData)
       
       toast.success('Schedule created successfully!')
       goBack()

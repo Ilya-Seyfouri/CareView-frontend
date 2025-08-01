@@ -16,7 +16,7 @@ export default function CarerSchedules() {
     const fetchSchedules = async () => {
       try {
         setIsLoading(true)
-        const data = await apiGet('/carer/me/schedules')
+        const data = await apiGet('carer/me/schedules')
         setSchedules(data.schedules)
         setError(null)
       } catch (err) {

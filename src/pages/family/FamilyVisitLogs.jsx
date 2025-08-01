@@ -20,7 +20,7 @@ export default function FamilyVisitLogs() {
     const fetchVisitLogs = async () => {
       try {
         setIsLoading(true)
-        const data = await apiGet(`/family/me/clients/${client_id}/visit-logs`)
+        const data = await apiGet(`family/me/clients/${client_id}/visit-logs`)
         setVisitLogs(data.visit_logs)
         setError(null)
       } catch (err) {

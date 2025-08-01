@@ -25,7 +25,7 @@ export default function AdminManagerDetail() {
     const fetchManager = async () => {
       try {
         setIsLoading(true)
-        const data = await apiGet(`/admin/managers/${email}`)
+        const data = await apiGet(`admin/managers/${email}`)
         setManager(data)
         setEditData({
           name: data.name || '',
@@ -54,7 +54,7 @@ export default function AdminManagerDetail() {
 
     try {
       setIsDeleting(true)
-      await apiDelete(`/admin/managers/${email}`)
+      await apiDelete(`admin/managers/${email}`)
       toast.success('Manager deleted successfully')
       navigate('/admin/managers')
     } catch (err) {
@@ -74,7 +74,7 @@ export default function AdminManagerDetail() {
   const handleSave = async () => {
     try {
       setIsSubmitting(true)
-      await apiPut(`/admin/managers/${email}`, editData)
+      await apiPut(`admin/managers/${email}`, editData)
       
       setManager({ ...manager, ...editData })
       setIsEditing(false)
