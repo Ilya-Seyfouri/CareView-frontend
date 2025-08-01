@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react'
-import { apiPost, apiGet } from './utils/api'
+import { apiPost, apiGet } from '../utils/api.js'
 
 const AuthContext = createContext()
 
@@ -25,6 +25,7 @@ export const AuthProvider = ({ children }) => {
     setIsLoading(true)
     
     try {
+      // apiPost expects just the endpoint, not /api/login
       const data = await apiPost('login', { email, password })
       const newToken = data.access_token
 
