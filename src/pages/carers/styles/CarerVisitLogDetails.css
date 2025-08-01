@@ -1,0 +1,333 @@
+/* Visit Log Detail Page Layout */
+.visit-log-detail-page {
+  min-height: 100vh;
+  background: var(--gray-50);
+}
+
+/* Header */
+.visit-log-detail-header {
+  background: white;
+  border-bottom: 1px solid var(--gray-200);
+  box-shadow: var(--shadow-sm);
+}
+
+.visit-log-detail-header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.visit-log-detail-header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+  gap: 1rem;
+}
+
+.visit-log-detail-header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.back-button {
+  color: var(--gray-500);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  font-size: 0.875rem;
+}
+.back-button:hover {
+  color: var(--gray-700);
+}
+
+.visit-log-detail-header-info h1, .visit-log-detail-header-info p {
+  margin: 0;
+}
+
+.visit-log-detail-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  letter-spacing: -0.025em;
+}
+
+.visit-log-detail-subtitle {
+  color: var(--gray-600);
+  margin-top: 0.5rem;
+}
+
+.visit-log-detail-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Main Container */
+.visit-log-detail-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.visit-log-detail-inner {
+  padding: 0;
+}
+
+/* Visit Log Details Card */
+.visit-log-details-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gray-200);
+  margin-bottom: 2rem;
+}
+
+.visit-log-header-section {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.visit-log-header-subtitle {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  margin: 0.5rem 0 0 0;
+}
+
+/* Visit Details Section */
+.visit-log-details-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Basic Info Grid */
+.visit-log-basic-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.detail-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--gray-500);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.detail-value {
+  font-size: 0.875rem;
+  color: var(--gray-900);
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Care Activities Section */
+.care-activities-section {
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--gray-200);
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--gray-800);
+  margin: 0 0 1rem 0;
+}
+
+.care-activities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.activity-field {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background: var(--gray-50);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--gray-200);
+}
+
+.activity-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--gray-500);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.activity-value {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.activity-yes {
+  color: var(--success);
+}
+
+.activity-no {
+  color: #dc2626;
+}
+
+.activity-neutral {
+  color: var(--gray-700);
+}
+
+/* Notes Section */
+.notes-section {
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--gray-200);
+}
+
+.notes-content {
+  background: var(--gray-50);
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--gray-200);
+  margin-top: 0.5rem;
+}
+
+.notes-text {
+  font-size: 0.875rem;
+  color: var(--gray-900);
+  margin: 0;
+  white-space: pre-wrap;
+  line-height: 1.5;
+}
+
+/* Timestamps Section */
+.timestamps-section {
+  padding-top: 1rem;
+  border-top: 1px solid var(--gray-200);
+}
+
+.timestamps-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--gray-500);
+  margin: 0 0 0.5rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.timestamps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.timestamp-field {
+  font-size: 0.75rem;
+  color: var(--gray-500);
+}
+
+.timestamp-label {
+  font-weight: 600;
+  color: var(--gray-600);
+}
+
+/* Quick Actions Grid */
+.quick-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.quick-action-card {
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-sm);
+}
+.quick-action-card:hover {
+  border-color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.quick-action-content {
+  text-align: left;
+}
+
+.quick-action-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: 0.25rem;
+}
+
+.quick-action-desc {
+  font-size: 0.75rem;
+  color: var(--gray-500);
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .visit-log-detail-header-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .visit-log-detail-header-left {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .visit-log-detail-header-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .visit-log-detail-container {
+    padding: 1rem;
+  }
+  .visit-log-basic-info {
+    grid-template-columns: 1fr;
+  }
+  .care-activities-grid {
+    grid-template-columns: 1fr;
+  }
+  .quick-actions-grid {
+    grid-template-columns: 1fr;
+  }
+  .timestamps-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 480px) {
+  .visit-log-detail-title {
+    font-size: 1.5rem;
+  }
+  .visit-log-detail-header-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5rem;
+  }
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .activity-field {
+    padding: 0.75rem;
+  }
+  .notes-content {
+    padding: 0.75rem;
+  }
+}/*# sourceMappingURL=CarerVisitLogDetails.css.map */

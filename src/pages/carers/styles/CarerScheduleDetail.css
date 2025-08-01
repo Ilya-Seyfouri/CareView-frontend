@@ -1,0 +1,326 @@
+/* Schedule Detail Page Layout */
+.schedule-actions {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 1.5rem !important;
+}
+
+.schedule-detail-page {
+  min-height: 100vh;
+  background: var(--gray-50);
+}
+
+.status-update-card,
+.quick-action-card {
+  height: 100%;
+}
+
+/* Header */
+.schedule-detail-header {
+  background: white;
+  border-bottom: 1px solid var(--gray-200);
+  box-shadow: var(--shadow-sm);
+}
+
+.schedule-detail-header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.schedule-detail-header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+  gap: 1rem;
+}
+
+.schedule-detail-header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.back-button {
+  color: var(--gray-500);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  font-size: 0.875rem;
+}
+.back-button:hover {
+  color: var(--gray-700);
+}
+
+.schedule-detail-header-info h1, .schedule-detail-header-info p {
+  margin: 0;
+}
+
+.schedule-detail-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  letter-spacing: -0.025em;
+}
+
+.schedule-detail-subtitle {
+  color: var(--gray-600);
+  margin-top: 0.5rem;
+}
+
+/* Main Container */
+.schedule-detail-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.schedule-detail-inner {
+  padding: 0;
+}
+
+/* Schedule Details Card */
+.schedule-details-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gray-200);
+  margin-bottom: 2rem;
+}
+
+.schedule-header-section {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.schedule-header-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Status Badges */
+.status-badge {
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.status-scheduled {
+  background: var(--gray-200);
+  color: var(--gray-700);
+}
+
+.status-in-progress {
+  background: linear-gradient(to bottom, rgb(255, 224, 194) 20%, rgb(255, 213, 171) 80%);
+  color: white;
+}
+
+.status-completed {
+  background: var(--success);
+  color: white;
+}
+
+.status-cancelled {
+  background: var(--error);
+  color: white;
+}
+
+/* Schedule Details Grid */
+.schedule-details-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.schedule-details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.detail-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--gray-500);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.detail-value {
+  font-size: 0.875rem;
+  color: var(--gray-900);
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Support Needs Section */
+.support-needs-section {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--gray-200);
+}
+
+.support-needs-content {
+  background: linear-gradient(to bottom, #fef3c7 20%, #fde68a 80%);
+  border: 1px solid #f59e0b;
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  margin-top: 0.5rem;
+}
+
+.support-needs-text {
+  font-size: 0.875rem;
+  color: var(--gray-900);
+  margin: 0;
+}
+
+/* Notes Section */
+.notes-section {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--gray-200);
+}
+
+.notes-content {
+  font-size: 0.875rem;
+  color: var(--gray-900);
+  background: var(--gray-50);
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  margin: 0.5rem 0 0 0;
+  border: 1px solid var(--gray-200);
+}
+
+/* Actions Section */
+.schedule-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Status Update Card */
+.status-update-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gray-200);
+}
+
+.status-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Quick Actions Grid */
+.quick-actions-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.quick-action-card {
+  background: rgb(255, 255, 255);
+  border: 1px solid black;
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-sm);
+}
+.quick-action-card:hover {
+  border-color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+.quick-action-card.quick-action-primary {
+  background: white;
+  border-color: var(--primary);
+  color: rgb(19, 19, 19);
+}
+.quick-action-card.quick-action-primary:hover {
+  border-color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+.quick-action-card.quick-action-primary .quick-action-title {
+  color: rgb(8, 8, 8);
+}
+.quick-action-card.quick-action-primary .quick-action-desc {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.quick-action-content {
+  text-align: left;
+}
+
+.quick-action-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: 0.25rem;
+}
+
+.quick-action-desc {
+  font-size: 0.75rem;
+  color: var(--gray-500);
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .schedule-detail-header-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .schedule-detail-header-left {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .schedule-detail-container {
+    padding: 1rem;
+  }
+  .schedule-details-grid {
+    grid-template-columns: 1fr;
+  }
+  .quick-actions-grid {
+    grid-template-columns: 1fr;
+  }
+  .schedule-header-info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .status-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+@media (max-width: 480px) {
+  .schedule-detail-title {
+    font-size: 1.5rem;
+  }
+  .support-needs-content {
+    padding: 0.75rem;
+  }
+  .notes-content {
+    padding: 0.75rem;
+  }
+}/*# sourceMappingURL=CarerScheduleDetail.css.map */

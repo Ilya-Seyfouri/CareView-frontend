@@ -1,0 +1,55 @@
+/* Header - Same structure as baseline */
+.dashboard-header {
+  background: white;
+  border-bottom: 1px solid var(--gray-200);
+  box-shadow: var(--shadow-sm);
+}
+
+.dashboard-header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.dashboard-header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+}
+
+.dashboard-title {
+  white-space: nowrap;
+}
+
+.header-left {
+  white-space: nowrap;
+}
+
+.header-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-left: -100px;
+}
+
+.header-right {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-left: 600px;
+}
+
+.dashboard-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+
+.dashboard-subtitle {
+  color: var(--gray-600);
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}/*# sourceMappingURL=ManagerClientDetail.css.map */
