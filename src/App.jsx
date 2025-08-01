@@ -66,7 +66,7 @@ function App() {
           
           {/* Manager routes */}
           <Route 
-            path="/manager/dashboard" 
+            path="manager/dashboard" 
             element={
               <ProtectedRoute allowedRoles={['manager']}>
                 <ManagerDashboard />
