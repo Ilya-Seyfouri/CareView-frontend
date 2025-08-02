@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 import './Login.scss'
+import care1 from "./care1.jpg"
 
 export default function Login() {
     const [email, setEmail] = useState('')
@@ -80,7 +81,13 @@ export default function Login() {
                     {/* Header */}
                     <div className="login-header">
                         <div className="login-logo">
-                            <div className="logo-icon">🏥</div>
+                            <div className="login-icon">
+                            <img 
+                                    src={care1}
+                                    alt="CareView Logo" 
+                                    className="logo-image"
+                                />
+                            </div>
                             <h2 className="login-title">CareView</h2>
                         </div>
                         <p className="login-subtitle">Sign in to your care management account</p>
