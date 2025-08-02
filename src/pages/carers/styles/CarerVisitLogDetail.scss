@@ -377,13 +377,11 @@
   --radius-lg: 0.75rem;
 }
 
-/* Page Layout - Same as Dashboard */
 .visit-log-detail-page {
   min-height: 100vh;
   background: var(--gray-50);
 }
 
-/* Header - Same as Dashboard */
 .visit-log-detail-header {
   background: white;
   border-bottom: 1px solid var(--gray-200);
@@ -472,7 +470,6 @@
   transform: translateY(-1px);
 }
 
-/* Main Container - Same as Dashboard */
 .visit-log-detail-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -718,7 +715,6 @@
   margin: 0;
 }
 
-/* Loading States - Same as Dashboard */
 .loading-container {
   min-height: 100vh;
   background: var(--gray-50);
@@ -747,7 +743,6 @@
   font-size: 0.875rem;
 }
 
-/* Error States - Same as Dashboard */
 .error-container {
   min-height: 100vh;
   background: var(--gray-50);
@@ -766,7 +761,6 @@
   font-size: 0.875rem;
 }
 
-/* Animations - Same as Dashboard */
 @keyframes fadeIn {
   from { 
     opacity: 0; 
@@ -829,7 +823,6 @@
   }
 }
 
-/* Fix header positioning for baseline consistency */
 .visit-log-detail-title {
   margin-left: 180px !important;
 }

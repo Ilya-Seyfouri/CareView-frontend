@@ -374,7 +374,5 @@
   outline-offset: 2px;
 }
 
-/* Dark Mode Support (if needed in future) */
 @media (prefers-color-scheme: dark) {
-  /* Could add dark mode styles here if needed */
 }/*# sourceMappingURL=ManagerCreateCarer.css.map */

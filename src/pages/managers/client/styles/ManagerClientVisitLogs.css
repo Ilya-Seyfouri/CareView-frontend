@@ -35,13 +35,11 @@
   --radius-lg: 0.75rem;
 }
 
-/* Page Layout - Same as Dashboard */
 .dashboard-page {
   min-height: 100vh;
   background: var(--gray-50);
 }
 
-/* Header - Same as Dashboard */
 .dashboard-header {
   background: white;
   border-bottom: 1px solid var(--gray-200);
@@ -143,7 +141,6 @@
   box-shadow: var(--shadow-md);
 }
 
-/* Main Content - Same as Dashboard */
 .dashboard-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -154,7 +151,6 @@
   padding: 0;
 }
 
-/* List Container - Visit Log Cards */
 .list-container {
   display: flex;
   flex-direction: column;
@@ -234,7 +230,6 @@
   font-weight: 500;
 }
 
-/* Status Badges - Visit Log Specific */
 .status-badge {
   padding: 0.25rem 0.75rem;
   border-radius: var(--radius-sm);
@@ -254,7 +249,6 @@
   color: white;
 }
 
-/* Empty State - Same as Dashboard */
 .empty-state {
   display: flex;
   justify-content: center;
@@ -291,7 +285,6 @@
   margin-top: 1.5rem;
 }
 
-/* Loading States - Same as Dashboard */
 .loading-container {
   min-height: 100vh;
   background: var(--gray-50);
@@ -320,7 +313,6 @@
   font-size: 0.875rem;
 }
 
-/* Error States - Same as Dashboard */
 .error-container {
   min-height: 100vh;
   background: var(--gray-50);
@@ -339,7 +331,6 @@
   font-size: 0.875rem;
 }
 
-/* Animations - Same as Dashboard */
 @keyframes fadeIn {
   from {
     opacity: 0;

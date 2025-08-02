@@ -68,7 +68,7 @@ export default function CarerClients() {
 
   return (
     <div className="dashboard-page">
-      {/* Header - Clean and organized */}
+      {/* Header*/}
       <div className="dashboard-header">
         <div className="dashboard-header-container">
           <div className="dashboard-header-content">
@@ -130,7 +130,7 @@ export default function CarerClients() {
                       </div>
                     </div>
                     
-                    {/* Care notes preview */}
+                    {/* Care notes*/}
                     {client.care_notes && (
                       <div className="user-card-description">
                         <p>

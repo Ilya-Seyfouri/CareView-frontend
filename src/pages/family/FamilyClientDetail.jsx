@@ -182,7 +182,6 @@ export default function FamilyClientDetail() {
             </div>
           </div>
 
-          {/* Information note for families */}
           <div className="info-notice">
             <div className="info-notice-content">
               <div className="info-notice-icon">

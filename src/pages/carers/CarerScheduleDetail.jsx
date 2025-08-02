@@ -223,7 +223,7 @@ export default function CarerScheduleDetail() {
     </div>
   </button>
 )}
-  {/* Quick actions as sibling cards */}
+  {/* Quick actions */}
  
 
   <button

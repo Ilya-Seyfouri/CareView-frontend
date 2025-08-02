@@ -104,7 +104,7 @@ export default function CarerCreateVisitLog() {
           <div className="visit-log-form-card">
             <form onSubmit={handleSubmit} className="visit-log-form">
               
-              {/* Auto-filled Carer Details */}
+              {/*  Carer Details */}
               <div className="carer-info-section">
                 <h3 className="carer-info-title">Carer Information (Auto-filled)</h3>
                 <div className="carer-info-grid">

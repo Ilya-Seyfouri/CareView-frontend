@@ -44,19 +44,17 @@ export default function ManagerCreateSchedule() {
     fetchData()
   }, [])
 
-  // Filter clients based on selected carer's assignments
+  // Filter clients based on carers assigned clients
   const availableClients = useMemo(() => {
     if (!formData.carer_email) {
-      return [] // No clients if no carer selected
+      return [] 
     }
     
-    // Find the selected carer
     const selectedCarer = carers.find(carer => carer.email === formData.carer_email)
     if (!selectedCarer || !selectedCarer.assigned_clients) {
       return []
     }
     
-    // Filter clients to only show those assigned to this carer
     return clients.filter(client => 
       selectedCarer.assigned_clients.includes(client.id)
     )
@@ -73,12 +71,11 @@ export default function ManagerCreateSchedule() {
   const handleChange = (e) => {
     const { name, value } = e.target
     
-    // Reset client_id when carer changes
     if (name === 'carer_email') {
       setFormData(prev => ({ 
         ...prev, 
         [name]: value,
-        client_id: '' // Reset client selection when carer changes
+        client_id: '' 
       }))
     } else {
       setFormData(prev => ({ ...prev, [name]: value }))
@@ -175,7 +172,7 @@ export default function ManagerCreateSchedule() {
                 </select>
               </div>
 
-              {/* Client Selection - Now filtered based on carer's assignments */}
+              {/* Client Selection*/}
               <div className="form-field">
                 <label htmlFor="client_id" className="form-label form-label-required">
                   Select Client
@@ -205,12 +202,12 @@ export default function ManagerCreateSchedule() {
                 </select>
                 {formData.carer_email && availableClients.length === 0 && (
                   <p className="form-helper-text">
-                    💡 This carer has no assigned clients. You can assign clients to carers in the Carers section.
+                     This carer has no assigned clients. You can assign clients to carers in the Carers section.
                   </p>
                 )}
                 {formData.carer_email && availableClients.length > 0 && (
                   <p className="form-helper-text">
-                    ✅ Showing {availableClients.length} client(s) assigned to this carer
+                    {availableClients.length} client(s) assigned to this carer
                   </p>
                 )}
               </div>

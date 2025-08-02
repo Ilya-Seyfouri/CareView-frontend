@@ -43,13 +43,11 @@
   --radius-lg: 0.75rem;
 }
 
-/* Page Layout - Same as Dashboard */
 .dashboard-page {
   min-height: 100vh;
   background: var(--gray-50);
 }
 
-/* Header - Same as Dashboard */
 .dashboard-header {
   background: white;
   border-bottom: 1px solid var(--gray-200);
@@ -158,7 +156,6 @@
   box-shadow: var(--shadow-md);
 }
 
-/* Main Content - Same as Dashboard */
 .dashboard-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -337,7 +334,6 @@
   font-size: 0.875rem;
 }
 
-/* Animations - From Dashboard */
 @keyframes fadeIn {
   from { 
     opacity: 0; 

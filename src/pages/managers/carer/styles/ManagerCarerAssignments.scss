@@ -43,13 +43,11 @@
   --radius-lg: 0.75rem;
 }
 
-/* Page Layout - Same as Dashboard */
 .assignments-page {
   min-height: 100vh;
   background: var(--gray-50);
 }
 
-/* Header - Same as Dashboard */
 .assignments-header {
   background: white;
   border-bottom: 1px solid var(--gray-200);
@@ -154,7 +152,6 @@
   color: white;
 }
 
-/* Main Container - Same as Dashboard */
 .assignments-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -284,7 +281,6 @@
   margin: 0;
 }
 
-/* Quick Actions - Same as Dashboard */
 .quick-actions-section {
   margin-top: 2rem;
 }
@@ -349,7 +345,6 @@
   line-height: 1.4;
 }
 
-/* Loading States - Same as Dashboard */
 .loading-container {
   min-height: 100vh;
   background: var(--gray-50);
@@ -378,7 +373,6 @@
   font-size: 0.875rem;
 }
 
-/* Error States - Same as Dashboard */
 .error-container {
   min-height: 100vh;
   background: var(--gray-50);
@@ -466,7 +460,6 @@
   }
 }
 
-/* Fix header positioning for baseline consistency */
 .assignments-title {
   margin-left: 180px !important;
 }

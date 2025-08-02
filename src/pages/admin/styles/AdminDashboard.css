@@ -35,13 +35,11 @@
   --radius-lg: 0.75rem;
 }
 
-/* Admin Dashboard Specific Styles */
 .admin-dashboard {
   min-height: 100vh;
   background: var(--gray-50);
 }
 
-/* Header - Admin specific styling */
 .admin-header {
   background: white;
   border-bottom: 1px solid var(--gray-200);
@@ -76,7 +74,6 @@
   font-weight: 500;
 }
 
-/* Button System - Admin specific */
 .btn {
   font-weight: 500;
   font-size: 0.875rem;
@@ -122,7 +119,6 @@
   padding: 2rem 1.5rem;
 }
 
-/* System Statistics Grid - 6 columns for admin */
 .admin-stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));

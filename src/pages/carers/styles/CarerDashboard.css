@@ -103,7 +103,6 @@
   margin: 0;
 }
 
-/* Quick Actions Grid - Override for Carer specific layout */
 .quick-actions-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));

@@ -150,7 +150,6 @@ export default function CarerVisitLogs() {
                    
                     </div>
                     
-                    {/* Arrow to indicate it's clickable */}
                    
                   </div>
                 </div>

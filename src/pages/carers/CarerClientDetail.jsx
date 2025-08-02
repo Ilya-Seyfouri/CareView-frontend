@@ -13,7 +13,7 @@ export default function CarerClientDetail() {
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState(null)
 
-  // Fetch client data using exact backend route
+  // Fetch client data
   useEffect(() => {
     const fetchClient = async () => {
       try {
@@ -144,7 +144,7 @@ export default function CarerClientDetail() {
             <h3 className="section-title">Care Actions</h3>
             <div className="action-cards-grid">
               
-              {/* Create Visit Log - Primary Action */}
+              {/* Create Visit Log*/}
               <button
                 onClick={() => navigate(`/carer/me/clients/${client_id}/visit-log/create`)}
                 className="action-card action-card-primary"

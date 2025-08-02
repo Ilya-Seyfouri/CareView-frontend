@@ -35,13 +35,11 @@
   --radius-lg: 0.75rem;
 }
 
-/* Page Layout - Same as Dashboard */
 .dashboard-page {
   min-height: 100vh;
   background: var(--gray-50);
 }
 
-/* Header - Same as Dashboard */
 .dashboard-header {
   background: white;
   border-bottom: 1px solid var(--gray-200);
@@ -81,7 +79,6 @@
   margin-bottom: 0;
 }
 
-/* Button System - Extended from Dashboard */
 .btn {
   font-weight: 500;
   font-size: 0.875rem;
@@ -170,7 +167,6 @@
   border-radius: var(--radius-sm);
 }
 
-/* Main Container - Same as Dashboard */
 .dashboard-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -189,7 +185,6 @@
   margin-bottom: 2rem;
 }
 
-/* Cards - Same as Dashboard */
 .card {
   background: white;
   border-radius: var(--radius-lg);
@@ -300,7 +295,6 @@
   margin: 0;
 }
 
-/* Loading States - Same as Dashboard */
 .loading-container {
   min-height: 100vh;
   background: var(--gray-50);
@@ -329,7 +323,6 @@
   font-size: 0.875rem;
 }
 
-/* Error States - Same as Dashboard */
 .error-container {
   min-height: 100vh;
   background: var(--gray-50);
@@ -348,7 +341,6 @@
   font-size: 0.875rem;
 }
 
-/* Animations - Same as Dashboard */
 @keyframes fadeIn {
   from {
     opacity: 0;

@@ -57,7 +57,7 @@ export const apiCall = async (url, options = {}) => {
     }
 }
 
-// Convenience functions for different HTTP methods
+//  functions for GET POST PUT DELETE requests
 export const apiGet = async (url) => {
     return apiCall(url, { method: 'GET' })
 }

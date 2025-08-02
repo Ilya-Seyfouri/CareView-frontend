@@ -231,12 +231,10 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  /* Make it scrollable when there are multiple schedules */
   max-height: 400px;
   overflow-y: auto;
   scroll-behavior: smooth;
-  padding-right: 8px; /* Add space between content and scrollbar */
-  /* Custom scrollbar styling */
+  padding-right: 8px;
 }
 .schedule-list::-webkit-scrollbar {
   width: 10px;
@@ -244,13 +242,13 @@
 .schedule-list::-webkit-scrollbar-track {
   background: var(--gray-100);
   border-radius: 6px;
-  margin: 4px 0; /* Add margin to track */
+  margin: 4px 0;
 }
 .schedule-list::-webkit-scrollbar-thumb {
   background: var(--gray-400);
   border-radius: 6px;
   border: 2px solid transparent;
-  background-clip: content-box; /* Creates space around thumb */
+  background-clip: content-box; 
 }
 .schedule-list::-webkit-scrollbar-thumb:hover {
   background: var(--gray-500);

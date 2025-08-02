@@ -59,7 +59,6 @@ export default function ManagerDashboard() {
 
   return (
     <div className="dashboard-page">
-      {/* Header with animated title */}
       <div className="dashboard-header">
         <div className="dashboard-header-container">
          <div className="dashboard-header-content">
@@ -72,7 +71,6 @@ export default function ManagerDashboard() {
             </div>
             </div>
 
-      {/* Dashboard content - keeping your existing layout but with container class */}
       <div className="dashboard-container">
         <div className="dashboard-inner">
           
@@ -151,7 +149,6 @@ export default function ManagerDashboard() {
             </div>
           </div>
 
-          {/* Quick Actions with flat-button style */}
           <div className="quick-actions-section">
             <h3 className="section-title">Quick Actions</h3>
             <div className="quick-actions-grid">
