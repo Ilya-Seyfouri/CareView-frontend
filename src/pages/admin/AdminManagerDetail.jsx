@@ -232,58 +232,10 @@ export default function AdminManagerDetail() {
             </div>
           </div>
 
-          {/* Quick actions */}
-          <div className="quick-actions-section">
-            <h3 className="section-title">Quick Actions</h3>
-            <div className="action-buttons-grid">
-              <button 
-                onClick={() => navigate('/admin/carers')} 
-                className="action-button"
-              >
-                <div className="action-button-content">
-                  <div className="action-button-icon-container">
-                    <div className="action-button-icon icon-primary">👥</div>
-                  </div>
-                  <div className="action-button-text">
-                    <h4 className="action-button-title">View All Carers</h4>
-                    <p className="action-button-desc">Manage system carers</p>
-                  </div>
-                </div>
-              </button>
-
-              <button 
-                onClick={() => navigate('/admin/dashboard')} 
-                className="action-button"
-              >
-                <div className="action-button-content">
-                  <div className="action-button-icon-container">
-                    <div className="action-button-icon icon-success">📊</div>
-                  </div>
-                  <div className="action-button-text">
-                    <h4 className="action-button-title">Admin Dashboard</h4>
-                    <p className="action-button-desc">View system overview</p>
-                  </div>
-                </div>
-              </button>
-
-              <button 
-                onClick={() => navigate('/admin/stats')} 
-                className="action-button"
-              >
-                <div className="action-button-content">
-                  <div className="action-button-icon-container">
-                    <div className="action-button-icon icon-warning">📈</div>
-                  </div>
-                  <div className="action-button-text">
-                    <h4 className="action-button-title">System Stats</h4>
-                    <p className="action-button-desc">View detailed statistics</p>
-                  </div>
-                </div>
-              </button>
+          
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      
   )
 }

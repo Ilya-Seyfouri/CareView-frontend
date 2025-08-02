@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { useAuth } from '../../../contexts/AuthContext'
 import { apiPost, apiGet } from '../../../utils/api'
 import { useNavigate, useLocation } from 'react-router-dom'
@@ -44,6 +44,24 @@ export default function ManagerCreateSchedule() {
     fetchData()
   }, [])
 
+  // Filter clients based on selected carer's assignments
+  const availableClients = useMemo(() => {
+    if (!formData.carer_email) {
+      return [] // No clients if no carer selected
+    }
+    
+    // Find the selected carer
+    const selectedCarer = carers.find(carer => carer.email === formData.carer_email)
+    if (!selectedCarer || !selectedCarer.assigned_clients) {
+      return []
+    }
+    
+    // Filter clients to only show those assigned to this carer
+    return clients.filter(client => 
+      selectedCarer.assigned_clients.includes(client.id)
+    )
+  }, [formData.carer_email, carers, clients])
+
   const goBack = () => {
     if (location.state?.from) {
       navigate(location.state.from)
@@ -54,7 +72,17 @@ export default function ManagerCreateSchedule() {
 
   const handleChange = (e) => {
     const { name, value } = e.target
-    setFormData(prev => ({ ...prev, [name]: value }))
+    
+    // Reset client_id when carer changes
+    if (name === 'carer_email') {
+      setFormData(prev => ({ 
+        ...prev, 
+        [name]: value,
+        client_id: '' // Reset client selection when carer changes
+      }))
+    } else {
+      setFormData(prev => ({ ...prev, [name]: value }))
+    }
   }
 
   const handleSubmit = async (e) => {
@@ -141,13 +169,13 @@ export default function ManagerCreateSchedule() {
                   <option value="">Choose a carer...</option>
                   {carers.map((carer) => (
                     <option key={carer.email} value={carer.email}>
-                      {carer.name} ({carer.email})
+                      {carer.name} ({carer.email}) - {carer.assigned_clients?.length || 0} clients
                     </option>
                   ))}
                 </select>
               </div>
 
-              {/* Client Selection */}
+              {/* Client Selection - Now filtered based on carer's assignments */}
               <div className="form-field">
                 <label htmlFor="client_id" className="form-label form-label-required">
                   Select Client
@@ -159,14 +187,32 @@ export default function ManagerCreateSchedule() {
                   value={formData.client_id}
                   onChange={handleChange}
                   className="form-select"
+                  disabled={!formData.carer_email}
                 >
-                  <option value="">Choose a client...</option>
-                  {clients.map((client) => (
+                  <option value="">
+                    {!formData.carer_email 
+                      ? "First select a carer..." 
+                      : availableClients.length === 0 
+                        ? "No clients assigned to this carer"
+                        : "Choose a client..."
+                    }
+                  </option>
+                  {availableClients.map((client) => (
                     <option key={client.id} value={client.id}>
                       {client.name} (Room {client.room})
                     </option>
                   ))}
                 </select>
+                {formData.carer_email && availableClients.length === 0 && (
+                  <p className="form-helper-text">
+                    💡 This carer has no assigned clients. You can assign clients to carers in the Carers section.
+                  </p>
+                )}
+                {formData.carer_email && availableClients.length > 0 && (
+                  <p className="form-helper-text">
+                    ✅ Showing {availableClients.length} client(s) assigned to this carer
+                  </p>
+                )}
               </div>
 
               {/* Date */}
@@ -182,6 +228,7 @@ export default function ManagerCreateSchedule() {
                   value={formData.date}
                   onChange={handleChange}
                   className="form-input"
+                  min={new Date().toISOString().split('T')[0]} // Prevent past dates
                 />
               </div>
 
@@ -235,6 +282,7 @@ export default function ManagerCreateSchedule() {
                   <option value="Morning Care">Morning Care</option>
                   <option value="Afternoon Care">Afternoon Care</option>
                   <option value="Evening Care">Evening Care</option>
+                  <option value="Evening Care">Evening Care</option>
                   <option value="Overnight Care">Overnight Care</option>
                   <option value="Medication Assistance">Medication Assistance</option>
                   <option value="Personal Care">Personal Care</option>
@@ -269,8 +317,8 @@ export default function ManagerCreateSchedule() {
                 </button>
                 <button
                   type="submit"
-                  disabled={isSubmitting}
-                  className={`form-submit-btn ${isSubmitting ? 'btn-disabled' : ''}`}
+                  disabled={isSubmitting || !formData.carer_email || !formData.client_id}
+                  className={`form-submit-btn ${isSubmitting || !formData.carer_email || !formData.client_id ? 'btn-disabled' : ''}`}
                 >
                   {isSubmitting ? 'Creating...' : 'Create Schedule'}
                 </button>

@@ -18,7 +18,7 @@ export default function FamilyDashboard() {
       try {
         setIsLoading(true)
         //GET /family/me/today
-        const data = await apiGet('family/me')
+        const data = await apiGet('family/me/today')
         setTodayData(data)
         setError(null)
       } catch (err) {
