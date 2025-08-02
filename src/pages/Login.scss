@@ -57,7 +57,6 @@
 .login-container {
   width: 100%;
   max-width: 32rem;
-
 }
 
 /* Login Card */
@@ -71,7 +70,6 @@
 
 /* Header */
 .login-header {
-  margin-left: -70px !important;
   text-align: center;
   margin-bottom: 2rem;
 }
@@ -84,30 +82,25 @@
   margin-bottom: 0.75rem;
 }
 
-
-
-.logo-icon {
-  font-size: 2rem;
+.login-icon {
+  width: 3.5rem;
+  height: 3.5rem;
   background: linear-gradient(to bottom, rgb(174, 230, 226) 20%, rgb(107, 226, 214));
-  width: 3rem;
-  height: 3rem;
   border-radius: var(--radius-lg);
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0.25rem;
 }
 
 .logo-image {
-  margin-right: 80px !important;
-
-  width: 5.5rem;
-  height: 5.5rem;
+  width: 200%;
+  height: 200%;
   object-fit: contain;
   border-radius: var(--radius-md);
 }
 
 .login-title {
-  margin-left: -100px !important;
   font-size: 1.875rem;
   font-weight: 700;
   color: var(--gray-900);
@@ -118,7 +111,6 @@
 .login-subtitle {
   color: var(--gray-600);
   margin: 0;
-  margin-left: 85px;
   font-size: 0.875rem;
 }
 
@@ -247,7 +239,6 @@
   flex-direction: column;
   gap: 1.25rem;
   margin-bottom: 1.5rem;
-  
 }
 
 .form-field {
@@ -260,12 +251,11 @@
   font-weight: 600;
   color: var(--gray-700);
   font-size: 0.875rem;
-  
 }
 
 .form-input {
   padding: 0.875rem 1rem;
-  border: 1px solid rgb(18, 155, 164) !important;
+  border: 2px solid rgb(18, 155, 164);
   border-radius: var(--radius-md);
   font-size: 0.875rem;
   transition: all 0.15s ease;
@@ -273,7 +263,8 @@
   
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(26, 35, 50, 0.1);
+    border-color: rgb(18, 155, 164);
+    box-shadow: 0 0 0 3px rgba(18, 155, 164, 0.1);
   }
   
   &::placeholder {
@@ -441,10 +432,9 @@
     padding: 0.75rem 1rem;
   }
   
-  /* Responsive logo sizing */
-  .logo-image {
-    width: 2rem;
-    height: 2rem;
+  .login-icon {
+    width: 3rem;
+    height: 3rem;
   }
 }
 
@@ -454,20 +444,12 @@
   }
   
   .login-logo {
-    flex-direction: column;
     gap: 0.5rem;
   }
   
-  .logo-icon {
-    margin-left: 50px !important;
+  .login-icon {
     width: 2.5rem;
     height: 2.5rem;
-    font-size: 1.5rem;
-  }
-  
-  .logo-image {
-    width: 1.75rem;
-    height: 1.75rem;
   }
   
   .demo-credential-item {
