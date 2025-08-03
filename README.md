@@ -1,12 +1,37 @@
-# React + Vite
+React + Vite Project
+A modern React application built with Vite for fast development and optimized builds.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+🛠️ Built With
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+React - Frontend library
+Vite - Fast build tool and dev server
+JavaScript/JSX - Programming language
 
-## Expanding the ESLint configuration
+📋 Prerequisites
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Node.js (version 16 or higher)
+npm 
+
+🚀 Getting Started
+1. Clone the repository
+   
+2. git clone https://github.com/yourusername/your-project-name.git
+cd your-project-name
+
+3. Install dependencies
+npm install
+
+4. Start the development server
+npm run dev
+
+The app will be available at http://localhost:5173
+📜 Available Scripts
+
+npm run dev - Start development server
+npm run build - Build for production
+npm run preview - Preview production build locally
+npm run lint - Run ESLint (if configured)
+
+🏗️ Build for Production
+npm run build
