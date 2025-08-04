@@ -51,7 +51,7 @@ export default function ManagerCarerAssignments() {
       const updatedCarer = await apiGet(`manager/carer/${email}`)
       setCarer(updatedCarer)
     } catch (err) {
-      toast.error('Failed to assign client')
+      toast.error('Failed to assign client', err)
       console.error('Assignment error:', err)
     } finally {
       setIsUpdating(false)
@@ -67,7 +67,7 @@ export default function ManagerCarerAssignments() {
       const updatedCarer = await apiGet(`manager/carer/${email}`)
       setCarer(updatedCarer)
     } catch (err) {
-      toast.error('Failed to unassign client')
+      toast.error('Failed to unassign client', err)
       console.error('Unassignment error:', err)
     } finally {
       setIsUpdating(false)

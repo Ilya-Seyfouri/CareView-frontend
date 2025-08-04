@@ -54,7 +54,7 @@ export default function ManagerClientTeam() {
       const updatedTeam = await apiGet(`manager/client/${client_id}/team`)
       setTeamData(updatedTeam)
     } catch (err) {
-      toast.error('Failed to assign carer')
+      toast.error('Failed to assign carer', err)
       console.error('Assignment error:', err)
     }
   }
@@ -68,7 +68,7 @@ export default function ManagerClientTeam() {
       const updatedTeam = await apiGet(`manager/client/${client_id}/team`)
       setTeamData(updatedTeam)
     } catch (err) {
-      toast.error('Failed to unassign carer')
+      toast.error('Failed to unassign carer', err)
       console.error('Unassignment error:', err)
     }
   }
@@ -81,7 +81,7 @@ export default function ManagerClientTeam() {
       const updatedTeam = await apiGet(`manager/client/${client_id}/team`)
       setTeamData(updatedTeam)
     } catch (err) {
-      toast.error('Failed to assign family member')
+      toast.error('Failed to assign family member', err)
       console.error('Assignment error:', err)
     }
   }
@@ -94,7 +94,7 @@ export default function ManagerClientTeam() {
       const updatedTeam = await apiGet(`manager/client/${client_id}/team`)
       setTeamData(updatedTeam)
     } catch (err) {
-      toast.error('Failed to unassign family member')
+      toast.error('Failed to unassign family member', err)
       console.error('Unassignment error:', err)
     }
   }

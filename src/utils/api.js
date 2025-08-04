@@ -21,7 +21,7 @@ export const apiCall = async (url, options = {}) => {
         const response = await fetch(`${baseURL}/${url}`, config)
 
         // Handle authentication errors
-        if (response.status === 401) {
+        if (response.status === 401 && url !== 'login') {
             localStorage.removeItem('token')
             localStorage.removeItem('role')
             window.location.href = '/login'

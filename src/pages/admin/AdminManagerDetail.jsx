@@ -58,7 +58,7 @@ export default function AdminManagerDetail() {
       toast.success('Manager deleted successfully')
       navigate('/admin/managers')
     } catch (err) {
-      toast.error('Failed to delete manager')
+      toast.error('Failed to delete manager', err)
       console.error('Delete error:', err)
     } finally {
       setIsDeleting(false)
@@ -80,7 +80,7 @@ export default function AdminManagerDetail() {
       setIsEditing(false)
       toast.success('Manager updated successfully!')
     } catch (err) {
-      toast.error('Failed to update manager')
+      toast.error('Failed to update manager', err)
       console.error('Update error:', err)
     } finally {
       setIsSubmitting(false)

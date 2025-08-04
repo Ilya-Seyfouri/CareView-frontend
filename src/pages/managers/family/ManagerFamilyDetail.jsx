@@ -54,7 +54,7 @@ export default function ManagerFamilyDetail() {
       toast.success('Family member deleted successfully')
       navigate('/manager/families')
     } catch (err) {
-      toast.error('Failed to delete family member')
+      toast.error('Failed to delete family member', err)
       console.error('Delete error:', err)
     } finally {
       setIsDeleting(false)
@@ -75,7 +75,7 @@ export default function ManagerFamilyDetail() {
       setIsEditing(false)
       toast.success('Family member updated successfully!')
     } catch (err) {
-      toast.error('Failed to update family member')
+      toast.error('Failed to update family member', err)
       console.error('Update error:', err)
     } finally {
       setIsSubmitting(false)

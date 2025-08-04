@@ -69,7 +69,7 @@ export default function ManagerClientDetail() {
       setIsEditing(false)
       toast.success('Client updated successfully!')
     } catch (err) {
-      toast.error('Failed to update client')
+      ('Failed to update client')
       console.error('Update error:', err)
     } finally {
       setIsSubmitting(false)
@@ -99,7 +99,7 @@ export default function ManagerClientDetail() {
       toast.success('Client deleted successfully')
       navigate('/manager/clients')
     } catch (err) {
-      toast.error('Failed to delete client')
+      toast.error('Failed to delete client', err)
       console.error('Delete error:', err)
     } finally {
       setIsDeleting(false)

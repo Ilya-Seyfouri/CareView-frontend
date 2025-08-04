@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
-import { handleFormError } from '../utils/errorUtils'
 import toast from 'react-hot-toast'
 import './Login.scss'
 import care1 from "./care1.jpg"
@@ -50,26 +49,13 @@ export default function Login() {
             return
         }
 
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-            const errorMsg = "Please enter a valid email address"
-            setError(errorMsg)
-            toast.error(errorMsg)
-            return
-        }
+        const result = await login(email, password)
 
-        try {
-            const result = await login(email, password)
-            if (result.success) {
-                toast.success(`Welcome back!`)
-            } else {
-                const errorMsg = handleFormError(result.error || { message: result.error })
-                setError(errorMsg)
-                toast.error(errorMsg)
-            }
-        } catch (err) {
-            const errorMsg = handleFormError(err)
-            setError(errorMsg)
-            toast.error(errorMsg)
+        if (result.success) {
+            toast.success('Welcome back!')
+        } else {
+            setError(result.error)
+            toast.error(result.error)
         }
     }
 
@@ -87,19 +73,12 @@ export default function Login() {
         setEmail(demoUser.email)
         setPassword(demoUser.password)
         
-        try {
-            const result = await login(demoUser.email, demoUser.password)
-            if (!result.success) {
-                const errorMsg = handleFormError(result.error || { message: result.error })
-                setError(errorMsg)
-                toast.error(errorMsg)
-            } else {
-                toast.success(`Logged in as ${demoUser.name}`)
-            }
-        } catch (err) {
-            const errorMsg = handleFormError(err)
-            setError(errorMsg)
-            toast.error(errorMsg)
+        const result = await login(demoUser.email, demoUser.password)
+        if (!result.success) {
+            setError(result.error)
+            toast.error(result.error)
+        } else {
+            toast.success(`Logged in as ${demoUser.name}`)
         }
     }
 

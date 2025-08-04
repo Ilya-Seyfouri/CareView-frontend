@@ -66,7 +66,7 @@ export default function ManagerScheduleDetail() {
       toast.success('Schedule updated successfully!')
     } catch (err) {
       console.error('Update error:', err)
-      toast.error('Failed to update schedule')
+      toast.error('Failed to update schedule', err)
     } finally {
       setIsSubmitting(false)
     }
@@ -98,7 +98,7 @@ export default function ManagerScheduleDetail() {
       
       goBack()
     } catch (err) {
-      toast.error('Failed to delete schedule')
+      toast.error('Failed to delete schedule', err)
       console.error('Delete error:', err)
     } finally {
       setIsDeleting(false)

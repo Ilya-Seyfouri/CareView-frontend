@@ -44,7 +44,7 @@ export default function ManagerVisitLogDetail() {
       toast.success('Visit log deleted successfully')
       navigate(`/manager/client/${client_id}/visit-logs`)
     } catch (err) {
-      toast.error('Failed to delete visit log')
+      toast.error('Failed to delete visit log', err)
       console.error('Delete error:', err)
     } finally {
       setIsDeleting(false)

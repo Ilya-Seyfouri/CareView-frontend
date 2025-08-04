@@ -60,7 +60,7 @@ export default function ManagerCarerDetail() {
       toast.success('Carer deleted successfully')
       navigate('/manager/carers')
     } catch (err) {
-      toast.error('Failed to delete carer')
+      toast.error('Failed to delete carer', err)
       console.error('Delete error:', err)
     } finally {
       setIsDeleting(false)
@@ -82,7 +82,7 @@ export default function ManagerCarerDetail() {
       setIsEditing(false)
       toast.success('Carer updated successfully!')
     } catch (err) {
-      toast.error('Failed to update carer')
+      toast.error('Failed to update carer', err)
       console.error('Update error:', err)
     } finally {
       setIsSubmitting(false)
