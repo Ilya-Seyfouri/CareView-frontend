@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useAuth } from '../../../contexts/AuthContext'
 import { apiPost } from '../../../utils/api'
 import { useNavigate } from 'react-router-dom'
+import { handleFormError, validateForm } from '../../../utils/errorUtils'
 import toast from 'react-hot-toast'
 import './styles/ManagerCreateFamily.scss'
 
@@ -18,6 +19,34 @@ export default function ManagerCreateFamily() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
 
+  const validationRules = {
+    name: { 
+      required: true, 
+      minLength: 2, 
+      label: 'Name' 
+    },
+    id: { 
+      required: true, 
+      minLength: 3, 
+      label: 'Family ID' 
+    },
+    email: { 
+      required: true, 
+      type: 'email', 
+      label: 'Email' 
+    },
+    password: { 
+      required: true, 
+      minLength: 8, 
+      label: 'Password' 
+    },
+    phone: { 
+      required: true, 
+      type: 'phone', 
+      label: 'Phone number' 
+    }
+  }
+
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData(prev => ({
@@ -29,6 +58,13 @@ export default function ManagerCreateFamily() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     
+    const clientErrors = validateForm(formData, validationRules)
+    if (Object.keys(clientErrors).length > 0) {
+      const firstError = Object.values(clientErrors)[0]
+      toast.error(firstError)
+      return
+    }
+    
     try {
       setIsSubmitting(true)
       
@@ -38,7 +74,8 @@ export default function ManagerCreateFamily() {
       navigate('/manager/families')
       
     } catch (err) {
-      toast.error(err.message || 'Failed to create family member')
+      const errorMsg = handleFormError(err)
+      toast.error(errorMsg)
       console.error('Create family error:', err)
     } finally {
       setIsSubmitting(false)
@@ -49,7 +86,6 @@ export default function ManagerCreateFamily() {
 
   return (
     <div className="dashboard-page">
-      {/* Header */}
       <div className="dashboard-header">
         <div className="dashboard-header-container">
           <div className="dashboard-header-content">
@@ -75,13 +111,11 @@ export default function ManagerCreateFamily() {
         </div>
       </div>
 
-      {/* Form */}
       <div className="form-container">
         <div className="form-inner">
           <div className="form-card">
             <form onSubmit={handleSubmit} className="form-content">
               
-              {/* Name */}
               <div className="form-field">
                 <label htmlFor="name" className="form-label form-label-required">
                   Full Name
@@ -98,7 +132,6 @@ export default function ManagerCreateFamily() {
                 />
               </div>
 
-              {/* Family ID */}
               <div className="form-field">
                 <label htmlFor="id" className="form-label form-label-required">
                   Family ID
@@ -115,7 +148,6 @@ export default function ManagerCreateFamily() {
                 />
               </div>
 
-              {/* Email */}
               <div className="form-field">
                 <label htmlFor="email" className="form-label form-label-required">
                   Email Address
@@ -132,7 +164,6 @@ export default function ManagerCreateFamily() {
                 />
               </div>
 
-              {/* Password */}
               <div className="form-field">
                 <label htmlFor="password" className="form-label form-label-required">
                   Password
@@ -150,7 +181,6 @@ export default function ManagerCreateFamily() {
                 />
               </div>
 
-              {/* Phone */}
               <div className="form-field">
                 <label htmlFor="phone" className="form-label form-label-required">
                   Phone Number
@@ -167,7 +197,6 @@ export default function ManagerCreateFamily() {
                 />
               </div>
 
-              {/* Form Actions */}
               <div className="form-actions">
                 <button
                   type="button"

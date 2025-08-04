@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
+import { handleFormError } from '../utils/errorUtils'
+import toast from 'react-hot-toast'
 import './Login.scss'
 import care1 from "./care1.jpg"
 
@@ -13,7 +15,6 @@ export default function Login() {
     const { login, isLoading, isAuthenticated, role} = useAuth()
     const navigate = useNavigate()
 
-    // Demo user credentials 
     const demoUsers = {
         manager: {
             email: 'manager@demo.com',
@@ -43,16 +44,32 @@ export default function Login() {
         setError('')
 
         if (!email || !password){
-            setError("Please fill in all fields")
+            const errorMsg = "Please fill in all fields"
+            setError(errorMsg)
+            toast.error(errorMsg)
             return
         }
 
-        const result = await login(email, password)
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            const errorMsg = "Please enter a valid email address"
+            setError(errorMsg)
+            toast.error(errorMsg)
+            return
+        }
 
-        if (result.success) {
-            // authcontext will handle navigation/redirect automatically
-        } else {
-            setError(result.error)
+        try {
+            const result = await login(email, password)
+            if (result.success) {
+                toast.success(`Welcome back!`)
+            } else {
+                const errorMsg = handleFormError(result.error || { message: result.error })
+                setError(errorMsg)
+                toast.error(errorMsg)
+            }
+        } catch (err) {
+            const errorMsg = handleFormError(err)
+            setError(errorMsg)
+            toast.error(errorMsg)
         }
     }
 
@@ -61,16 +78,28 @@ export default function Login() {
         const demoUser = demoUsers[userType]
         
         if (!demoUser) {
-            setError(`Demo user for ${userType} not configured`)
+            const errorMsg = `Demo user for ${userType} not configured`
+            setError(errorMsg)
+            toast.error(errorMsg)
             return
         }
 
         setEmail(demoUser.email)
         setPassword(demoUser.password)
         
-        const result = await login(demoUser.email, demoUser.password)
-        if (!result.success) {
-            setError(`Demo login failed: ${result.error}`)
+        try {
+            const result = await login(demoUser.email, demoUser.password)
+            if (!result.success) {
+                const errorMsg = handleFormError(result.error || { message: result.error })
+                setError(errorMsg)
+                toast.error(errorMsg)
+            } else {
+                toast.success(`Logged in as ${demoUser.name}`)
+            }
+        } catch (err) {
+            const errorMsg = handleFormError(err)
+            setError(errorMsg)
+            toast.error(errorMsg)
         }
     }
 
@@ -78,7 +107,6 @@ export default function Login() {
         <div className="login-page">
             <div className="login-container">
                 <div className="login-card">
-                    {/* Header */}
                     <div className="login-header">
                         <div className="login-logo">
                             <div className="login-icon">
@@ -138,9 +166,7 @@ export default function Login() {
                         </div>
                     )}
                     
-                    {/* Login Form */}
                     <form className="login-form" onSubmit={handleSubmit}>
-                        {/* Error Message Display */}
                         {error && (
                             <div className="error-message">
                                 <span className="error-icon">⚠️</span>
@@ -149,7 +175,6 @@ export default function Login() {
                         )}
                         
                         <div className="form-fields">
-                            {/* Email Input */}
                             <div className="form-field">
                                 <label htmlFor="email" className="form-label">
                                     Email Address
@@ -166,7 +191,6 @@ export default function Login() {
                                 />
                             </div>
                             
-                            {/* Password Input */}
                             <div className="form-field">
                                 <label htmlFor="password" className="form-label">
                                     Password
@@ -184,7 +208,6 @@ export default function Login() {
                             </div>
                         </div>
 
-                        {/* Submit Button */}
                         <div className="submit-button-container">
                             <button
                                 type="submit"
@@ -203,7 +226,6 @@ export default function Login() {
                         </div>
                     </form>
 
-                    {/* Demo Credentials Display */}
                     {showDemo && (
                         <div className="demo-credentials">
                             <h4 className="demo-credentials-title">Demo Credentials:</h4>

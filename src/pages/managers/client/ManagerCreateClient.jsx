@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useAuth } from '../../../contexts/AuthContext'
 import { apiPost } from '../../../utils/api'
 import { useNavigate } from 'react-router-dom'
+import { handleFormError, validateForm } from '../../../utils/errorUtils'
 import toast from 'react-hot-toast'
 import './styles/ManagerCreateClient.scss'
 
@@ -18,6 +19,34 @@ export default function ManagerCreateClient() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
 
+  const validationRules = {
+    name: { 
+      required: true, 
+      minLength: 2, 
+      label: 'Name' 
+    },
+    age: { 
+      required: true, 
+      min: 18, 
+      max: 120, 
+      label: 'Age' 
+    },
+    room: { 
+      required: true, 
+      minLength: 1, 
+      label: 'Room number' 
+    },
+    date_of_birth: { 
+      required: true, 
+      label: 'Date of birth' 
+    },
+    support_needs: { 
+      required: true, 
+      minLength: 10, 
+      label: 'Support needs' 
+    }
+  }
+
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData(prev => ({
@@ -29,10 +58,16 @@ export default function ManagerCreateClient() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     
+    const clientErrors = validateForm(formData, validationRules)
+    if (Object.keys(clientErrors).length > 0) {
+      const firstError = Object.values(clientErrors)[0]
+      toast.error(firstError)
+      return
+    }
+    
     try {
       setIsSubmitting(true)
       
-      // Convert age to number 
       const clientData = {
         ...formData,
         age: parseInt(formData.age)
@@ -41,12 +76,11 @@ export default function ManagerCreateClient() {
       const response = await apiPost('manager/create/client', clientData)
       
       toast.success('Client created successfully!')
-      
-      // Navigate to the new clients page
       navigate(`/manager/client/${response.id}`)
       
     } catch (err) {
-      toast.error(err.message || 'Failed to create client')
+      const errorMsg = handleFormError(err)
+      toast.error(errorMsg)
       console.error('Create client error:', err)
     } finally {
       setIsSubmitting(false)
@@ -57,7 +91,6 @@ export default function ManagerCreateClient() {
 
   return (
     <div className="dashboard-page">
-      {/* Header */}
       <div className="dashboard-header">
         <div className="dashboard-header-container">
           <div className="dashboard-header-content">
@@ -83,13 +116,11 @@ export default function ManagerCreateClient() {
         </div>
       </div>
 
-      {/* Form */}
       <div className="form-container">
         <div className="form-inner">
           <div className="form-card">
             <form onSubmit={handleSubmit} className="form-content">
               
-              {/* Name */}
               <div className="form-field">
                 <label htmlFor="name" className="form-label form-label-required">
                   Full Name
@@ -106,7 +137,6 @@ export default function ManagerCreateClient() {
                 />
               </div>
 
-              {/* Age and Room - side by side */}
               <div className="form-group">
                 <div className="form-field">
                   <label htmlFor="age" className="form-label form-label-required">
@@ -143,7 +173,6 @@ export default function ManagerCreateClient() {
                 </div>
               </div>
 
-              {/* Date of Birth */}
               <div className="form-field">
                 <label htmlFor="date_of_birth" className="form-label form-label-required">
                   Date of Birth
@@ -159,7 +188,6 @@ export default function ManagerCreateClient() {
                 />
               </div>
 
-              {/* Support Needs */}
               <div className="form-field">
                 <label htmlFor="support_needs" className="form-label form-label-required">
                   Support Needs
@@ -176,7 +204,6 @@ export default function ManagerCreateClient() {
                 />
               </div>
 
-              {/* Form Actions */}
               <div className="form-actions">
                 <button
                   type="button"

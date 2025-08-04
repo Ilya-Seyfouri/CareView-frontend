@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useAuth } from '../../../contexts/AuthContext'
 import { apiPost } from '../../../utils/api'
 import { useNavigate } from 'react-router-dom'
+import { handleFormError, validateForm } from '../../../utils/errorUtils'
 import toast from 'react-hot-toast'
 import './styles/ManagerCreateCarer.scss'
 
@@ -9,7 +10,6 @@ export default function ManagerCreateCarer() {
   const { user, logout } = useAuth()
   const navigate = useNavigate()
   
-  // Form state
   const [formData, setFormData] = useState({
     email: '',
     name: '',
@@ -18,7 +18,29 @@ export default function ManagerCreateCarer() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
 
-  // Handle form input changes
+  const validationRules = {
+    name: { 
+      required: true, 
+      minLength: 2, 
+      label: 'Name' 
+    },
+    email: { 
+      required: true, 
+      type: 'email', 
+      label: 'Email' 
+    },
+    password: { 
+      required: true, 
+      minLength: 8, 
+      label: 'Password' 
+    },
+    phone: { 
+      required: true, 
+      type: 'phone', 
+      label: 'Phone number' 
+    }
+  }
+
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData(prev => ({
@@ -27,9 +49,15 @@ export default function ManagerCreateCarer() {
     }))
   }
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault()
+    
+    const clientErrors = validateForm(formData, validationRules)
+    if (Object.keys(clientErrors).length > 0) {
+      const firstError = Object.values(clientErrors)[0]
+      toast.error(firstError)
+      return
+    }
     
     try {
       setIsSubmitting(true)
@@ -37,12 +65,11 @@ export default function ManagerCreateCarer() {
       const response = await apiPost('manager/create/carer', formData)
       
       toast.success('Carer created successfully!')
-      
-      // Navigate to carers list
       navigate('/manager/carers')
       
     } catch (err) {
-      toast.error(err.message || 'Failed to create carer')
+      const errorMsg = handleFormError(err)
+      toast.error(errorMsg)
       console.error('Create carer error:', err)
     } finally {
       setIsSubmitting(false)
@@ -51,33 +78,31 @@ export default function ManagerCreateCarer() {
 
   const goBack = () => navigate('/manager/carers')
 
- return (
-  <div className="create-carer-page">
-    {/* Header */}
-    <div className="create-carer-header">
-      <div className="create-carer-header-container">
-        <div className="create-carer-header-content">
-          <div className="header-left">
-            <button onClick={goBack} className="back-button">
-              ← Back to Carers
-            </button>
-          </div>
-          
-          <div className="header-title-section">
-            <h1 className="create-carer-title">Create New Carer</h1>
-            <p className="create-carer-subtitle">Add a new carer to the team</p>
-          </div>
-          
-          <div className="header-right">
-            <button onClick={logout} className="btn btn-danger">
-              Logout
-            </button>
+  return (
+    <div className="create-carer-page">
+      <div className="create-carer-header">
+        <div className="create-carer-header-container">
+          <div className="create-carer-header-content">
+            <div className="header-left">
+              <button onClick={goBack} className="back-button">
+                ← Back to Carers
+              </button>
+            </div>
+            
+            <div className="header-title-section">
+              <h1 className="create-carer-title">Create New Carer</h1>
+              <p className="create-carer-subtitle">Add a new carer to the team</p>
+            </div>
+            
+            <div className="header-right">
+              <button onClick={logout} className="btn btn-danger">
+                Logout
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-      {/* Form */}
       <div className="create-carer-container">
         <div className="create-carer-inner">
           <div className="form-card">
@@ -90,7 +115,6 @@ export default function ManagerCreateCarer() {
             
             <form onSubmit={handleSubmit} className="carer-form">
               
-              {/* Name */}
               <div className="form-field">
                 <label htmlFor="name" className="form-label">
                   Full Name *
@@ -107,7 +131,6 @@ export default function ManagerCreateCarer() {
                 />
               </div>
 
-              {/* Email */}
               <div className="form-field">
                 <label htmlFor="email" className="form-label">
                   Email Address *
@@ -127,7 +150,6 @@ export default function ManagerCreateCarer() {
                 </p>
               </div>
 
-              {/* Password */}
               <div className="form-field">
                 <label htmlFor="password" className="form-label">
                   Password *
@@ -148,7 +170,6 @@ export default function ManagerCreateCarer() {
                 </p>
               </div>
 
-              {/* Phone */}
               <div className="form-field">
                 <label htmlFor="phone" className="form-label">
                   Phone Number *
@@ -168,7 +189,6 @@ export default function ManagerCreateCarer() {
                 </p>
               </div>
 
-              {/* Form Actions */}
               <div className="form-actions">
                 <button
                   type="button"
