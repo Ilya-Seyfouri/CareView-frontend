@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useAuth } from '../../../contexts/AuthContext'
 import { apiPost } from '../../../utils/api'
 import { useNavigate } from 'react-router-dom'
-import { handleFormError, validateForm } from '../../../utils/errorUtils'
+import { showApiError } from '../../../utils/errorUtils'
 import toast from 'react-hot-toast'
 import './styles/ManagerCreateFamily.scss'
 
@@ -19,34 +19,6 @@ export default function ManagerCreateFamily() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const validationRules = {
-    name: { 
-      required: true, 
-      minLength: 2, 
-      label: 'Name' 
-    },
-    id: { 
-      required: true, 
-      minLength: 3, 
-      label: 'Family ID' 
-    },
-    email: { 
-      required: true, 
-      type: 'email', 
-      label: 'Email' 
-    },
-    password: { 
-      required: true, 
-      minLength: 8, 
-      label: 'Password' 
-    },
-    phone: { 
-      required: true, 
-      type: 'phone', 
-      label: 'Phone number' 
-    }
-  }
-
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData(prev => ({
@@ -58,13 +30,6 @@ export default function ManagerCreateFamily() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     
-    const clientErrors = validateForm(formData, validationRules)
-    if (Object.keys(clientErrors).length > 0) {
-      const firstError = Object.values(clientErrors)[0]
-      toast.error(firstError)
-      return
-    }
-    
     try {
       setIsSubmitting(true)
       
@@ -74,8 +39,7 @@ export default function ManagerCreateFamily() {
       navigate('/manager/families')
       
     } catch (err) {
-      const errorMsg = handleFormError(err)
-      toast.error(errorMsg)
+      showApiError(err, toast)
       console.error('Create family error:', err)
     } finally {
       setIsSubmitting(false)
