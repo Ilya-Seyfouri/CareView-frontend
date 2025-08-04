@@ -6,7 +6,7 @@ export const apiCall = async (url, options = {}) => {
 
     // Use Railway URL in production, local proxy in development
     const baseURL = process.env.NODE_ENV === 'production' 
-        ? 'https://web-production-c61c3.up.railway.app' 
+        ? 'https://web-production-c61c4.up.railway.app' 
         : '/api'
 
     const config = {
